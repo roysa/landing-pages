@@ -1,0 +1,46 @@
+div.container {
+    min-width: 300px;
+    max-width: 900px;
+    margin: 0 auto;
+    position: relative;
+}
+.pull-left {
+    float: left;
+    margin-right: .6em;
+}
+.text-center {
+    text-align: center;
+}
+ul.menu {
+    display: block;
+    list-style: none;
+    background-color: #eee;
+    padding: 1em;
+}
+ul.menu li {
+    list-style: none;
+    display: inline-block;
+}
+ul.menu li a {
+    color: #2d2d2d;
+    font-weight: bolder;
+    text-transform: uppercase;
+    font-size: 1.2em;
+    margin: 0 1em;
+}
+ul.menu.top {
+    position: fixed;
+    top: 0;
+}
+div.page {
+    
+}
+.section {
+    margin: 10em 0;
+}
+.footer {
+    width: 100%;
+    background: #eee;
+    text-align: center;
+    padding: 5em 0;
+}
