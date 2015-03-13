@@ -1,5 +1,7 @@
 $(document).ready(function(){
    
+   var baseUrl = $('body').attr('data-base-url');
+   
     // get all pages with their ids/urls
     var pages = {};
     $('.section').each(function(i,s){
@@ -10,15 +12,15 @@ $(document).ready(function(){
     // setup events for all section related links
     for (var id in pages) {
         // hook the event from section link
-        $('a[href="/' + id + '"]').click(function(event){
+        $('a[href="' + baseUrl + id + '"]').click(function(event){
             event.preventDefault();
-            navigateTo($(this).attr('href').replace('/', ''));
+            navigateTo($(this).attr('href').replace(baseUrl, ''));
         });
     }
     
     // determine current page and navigate to
     var currentPage = null;
-    var uri = window.location.pathname.replace('/', '');
+    var uri = window.location.pathname.replace(baseUrl, '');
     for (var id in pages) {
         if (uri == id) {
             currentPage = id;
@@ -43,7 +45,7 @@ $(document).ready(function(){
         }, 500, 'swing', function(){
             // when animation hinished, change URL
             if (currentPage != page) {
-                window.history.pushState(null,null,'/' + page);
+                window.history.pushState(null,null, baseUrl + page);
                 currentPage = page;
             }
         });

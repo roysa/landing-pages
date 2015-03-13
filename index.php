@@ -10,7 +10,7 @@ $baseUrl = '/';
 $pages = array('top', 'howitworks', 'services', 'contacts');
 
 // look for requested page
-$uri = trim(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH), '/');
+$uri = trim(str_replace($baseUrl, '', parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH)), '/');
 if (in_array($uri, $pages)) {
     $currentPage = $pages[array_search($uri, $pages)];
 } elseif ($uri == '') {
@@ -52,7 +52,7 @@ foreach ($pages as $pageName) {
         <script type="text/javascript" src="jquery-1.11.2.min.js"></script>
         <script type="text/javascript" src="main.js?v=<?= time() ?>"></script>
     </head>
-    <body>
+    <body data-base-url="<?= $baseUrl ?>">
         <div class="container">
             <!-- draw menu -->
             <ul class="menu top">
